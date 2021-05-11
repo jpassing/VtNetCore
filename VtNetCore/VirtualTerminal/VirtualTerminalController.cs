@@ -2778,8 +2778,8 @@
             SendData?.Invoke(this, new SendDataEventArgs { Data = value });
         }
 
-        private static readonly byte[] BracketedPasteModePrefix = Encoding.ASCII.GetBytes("\u001b[200~,");
-        private static readonly byte[] BracketedPasteModePostfix = Encoding.ASCII.GetBytes("\u001b[200~,");
+        private static readonly byte[] BracketedPasteModePrefix = Encoding.ASCII.GetBytes("\u001b[200~");
+        private static readonly byte[] BracketedPasteModePostfix = Encoding.ASCII.GetBytes("\u001b[201~");
 
         public void Paste(byte [] toPaste)
         {
