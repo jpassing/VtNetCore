@@ -739,6 +739,35 @@
             },
             new SequenceHandler
             {
+                Description = "Set/reset key modifier options (XTMODKEYS).",
+                SequenceType = SequenceHandler.ESequenceType.CSI,
+                CsiCommand = "m",
+                Send = true,
+                ExactParameterCount = 2,
+                Handler = (sequence, controller) =>
+                {
+                    switch (sequence.Parameters[0])
+                    {
+                        case 0:
+                            controller.ModifyKeyboard = (ModifyKeyboardMode)sequence.Parameters[1];
+                            break;
+
+                        case 1:
+                            controller.ModifyCursorKeys = (ModifyCursorKeysMode)sequence.Parameters[1];
+                            break;
+
+                        case 2:
+                            controller.ModifyFunctionKeys = (ModifyFunctionKeysMode)sequence.Parameters[1];
+                            break;
+
+                        case 4:
+                            controller.ModifyOtherKeys = (ModifyOtherKeysMode)sequence.Parameters[1];
+                            break;
+                    }
+                }
+            },
+            new SequenceHandler
+            {
                 Description = "Device Status Report (DSR). - Status Report.",
                 SequenceType = SequenceHandler.ESequenceType.CSI,
                 CsiCommand = "n",

@@ -157,5 +157,48 @@
         void XTermReport(XTermReportType reportType);
         void XTermResizeTextArea(int columns, int rows);
         void XTermResizeWindow(int width, int height);
+
+        ModifyKeyboardMode ModifyKeyboard { get; set; }
+        ModifyCursorKeysMode ModifyCursorKeys { get; set; }
+        ModifyFunctionKeysMode ModifyFunctionKeys { get; set; }
+        ModifyOtherKeysMode ModifyOtherKeys { get; set; }
+    }
+
+    public enum ModifyCursorKeysMode
+    {
+        Disabled = -1,
+        OldBehavior = 0,
+        PrefixWithCsi = 1,
+        ForceAsSecondParameter = 2,
+        MarkAsPrivate,
+        _Default = ForceAsSecondParameter
+    }
+
+    public enum ModifyFunctionKeysMode
+    {
+        PermitShiftAndControlModifiers = -1,
+        OldBehavior = 0,
+        PrefixWithCsi = 1,
+        ForceAsSecondParameter = 2,
+        MarkAsPrivate,
+        _Default = ForceAsSecondParameter
+    }
+
+    public enum ModifyKeyboardMode
+    {
+        OldBehavior = 0,
+        AllowModifyNumericKeypad = 1,
+        AllowModifyEditingKeypad = 2,
+        AllowModifyFunctionKeys = 4,
+        AllowModifySpecialKeys = 8,
+        _Default = OldBehavior
+    }
+
+    public enum ModifyOtherKeysMode
+    {
+        Disabled = 0,
+        EnabledWithExceptions = 1,
+        Enabled = 2,
+        _Default = Disabled
     }
 }

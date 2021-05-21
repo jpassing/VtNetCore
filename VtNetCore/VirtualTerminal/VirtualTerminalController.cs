@@ -19,6 +19,11 @@
         private int alternativeBufferTopRow = 0;
         private int normalBufferTopRow = 0;
 
+        private ModifyKeyboardMode modifyKeyboard = ModifyKeyboardMode._Default;
+        private ModifyCursorKeysMode modifyCursorKeys = ModifyCursorKeysMode._Default;
+        private ModifyFunctionKeysMode modifyFunctionKeys = ModifyFunctionKeysMode._Default;
+        private ModifyOtherKeysMode modifyOtherKeys = ModifyOtherKeysMode._Default;
+
         /// <summary>
         /// Configures the maximum number of lines stored in the history
         /// </summary>
@@ -3495,6 +3500,46 @@
             var report = "\u001b]10;" + CursorState.Attributes.XParseColor + "\u0007";
 
             SendData?.Invoke(this, new SendDataEventArgs { Data = Encoding.UTF8.GetBytes(report) });
+        }
+
+        public ModifyKeyboardMode ModifyKeyboard
+        {
+            get => this.modifyKeyboard;
+            set
+            {
+                LogController($"Set ModifyKeyboard mode set to {value}");
+                this.modifyKeyboard = value;
+            }
+        }
+
+        public ModifyCursorKeysMode ModifyCursorKeys
+        {
+            get => this.modifyCursorKeys;
+            set
+            {
+                LogController($"Set ModifyCursorKeys mode set to {value}");
+                this.modifyCursorKeys = value;
+            }
+        }
+
+        public ModifyFunctionKeysMode ModifyFunctionKeys
+        {
+            get => this.modifyFunctionKeys;
+            set
+            {
+                LogController($"Set ModifyFunctionKeys mode set to {value}");
+                this.modifyFunctionKeys = value;
+            }
+        }
+
+        public ModifyOtherKeysMode ModifyOtherKeys
+        {
+            get => this.modifyOtherKeys;
+            set
+            {
+                LogController($"Set ModifyOtherKeys mode set to {value}");
+                this.modifyOtherKeys = value;
+            }
         }
     }
 }
