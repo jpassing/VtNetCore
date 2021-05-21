@@ -154,6 +154,7 @@
             { "Enter",   new KeyboardTranslation { Normal = "\r", Shift = "\r", Control = "\r" } },
             { "Return",  new KeyboardTranslation { Normal = "\r", Shift = "\r", Control = "\r" } },
             { "Escape",  new KeyboardTranslation { Normal = "\u001b\u001b", Shift = "\u001b\u001b", Control = "\u001b\u001b" } },
+            { "Space",   new KeyboardTranslation { Control = "\u0000" } },
             { "A",       new KeyboardTranslation { Control = "\u0001" } },
             { "B",       new KeyboardTranslation { Control = "\u0002" } },
             { "C",       new KeyboardTranslation { Control = "\u0003" } },
